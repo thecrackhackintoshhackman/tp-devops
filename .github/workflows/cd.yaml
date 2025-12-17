@@ -1,0 +1,34 @@
+name: CD - Déploiement Continu
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: 📥 Checkout du code
+      uses: actions/checkout@v3
+    
+    - name: 🚀 Déployer sur GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./src
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+    
+    - name: ✅ Confirmer le déploiement
+      run: |
+        echo "========================================"
+        echo "        DÉPLOIEMENT RÉUSSI !           "
+        echo "========================================"
+        echo "🌐 Site web disponible sur :"
+        echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        echo ""
+        echo "📅 Déployé le : $(date)"
+        echo "🔗 Commit : ${{ github.sha }}"
+        echo "========================================"
