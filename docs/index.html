@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP DevOps CI/CD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Pipeline CI/CD Opérationnel</h1>
+            <p class="subtitle">TP DevOps - Déploiement automatique avec GitHub Actions</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>📦 Fonctionnalités du Pipeline</h2>
+                <ul>
+                    <li>✅ Tests automatiques à chaque commit</li>
+                    <li>✅ Build Docker automatisé</li>
+                    <li>✅ Déploiement sur GitHub Pages</li>
+                    <li>✅ Image publiée sur Docker Hub</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>📊 Statut du déploiement</h2>
+                <div class="status">
+                    <div class="status-item">
+                        <span class="label">Dernier build :</span>
+                        <span class="value success">✓ Réussi</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Déployé le :</span>
+                        <span class="value" id="deploy-date">Chargement...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">URL :</span>
+                        <a href="#" class="value link" id="site-url">Chargement...</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button onclick="runTest()" class="btn test-btn">🧪 Exécuter les tests</button>
+                <button onclick="showInfo()" class="btn info-btn">ℹ️ Voir les détails</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>TP DevOps CI/CD - Déployé automatiquement avec GitHub Actions</p>
+            <div class="badges">
+                <span class="badge ci">CI</span>
+                <span class="badge cd">CD</span>
+                <span class="badge docker">Docker</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
